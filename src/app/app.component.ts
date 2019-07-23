@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
 
 
     $('.validate-form .input100').each(function() {
-      $(this).focus(() => {
+      $(this).on('focus', () => {
         $(this).parent().removeClass('alert-validate');
       });
     });
@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
   }
 
   validate(input) {
-    if ($(input).attr('type') == 'email' || $(input).attr('name') === 'email') {
+    if ($(input).attr('type') === 'email' || $(input).attr('name') === 'email') {
       // tslint:disable-next-line: max-line-length
       if (($(input).val() as string).trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
         return false;
