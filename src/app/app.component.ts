@@ -38,9 +38,8 @@ export class AppComponent implements OnInit {
 
   validate(input) {
     if ($(input).attr('type') == 'email' || $(input).attr('name') === 'email') {
-      if (($(input).val() as string).trim()
       // tslint:disable-next-line: max-line-length
-      .match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+      if (($(input).val() as string).trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
         return false;
       }
     } else {
@@ -48,6 +47,8 @@ export class AppComponent implements OnInit {
         return false;
       }
     }
+
+    return true;
   }
 
   showValidate(input) {
